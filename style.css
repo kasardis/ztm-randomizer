@@ -21,7 +21,7 @@ button:active{
 }
 
 @media (min-width: 768px) {
-    #result-details {
+    #result-description {
         width: 80%;
     }
 }

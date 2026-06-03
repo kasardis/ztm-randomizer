@@ -20,12 +20,12 @@ fetch("./gtfs/routes.txt")
 
 document.querySelector("#random-stop").addEventListener('click', function(e) {
     var index = Math.floor(Math.random() * stop_data.length - 1);
-    document.querySelector("#result").textContent = stop_data[index][2];
+    document.querySelector("#result").textContent = stop_data[index][2].replace(/"/g, '');
     document.querySelector("#result-description").textContent = stop_data[index][3] + ', ' + stop_data[index][4];
 });
 
 document.querySelector("#random-route").addEventListener('click', function(e) {
     var index = Math.floor(Math.random() * route_data.length - 1);
-    document.querySelector("#result").textContent = route_data[index][2];
+    document.querySelector("#result").textContent = route_data[index][2].replace(/"/g, '');
     document.querySelector("#result-description").textContent = route_data[index][4];
 });
