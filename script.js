@@ -1,11 +1,14 @@
 var stop_data;
 fetch("./gtfs/stops.txt")
 .then(r=>r.text())
-.then(text => stop_data = text.split('\n'));
+.then(text => stop_data = text.split('\n'))
+.then( () => {
+    for(var i = 0; i < stop_data.length; i++){
+        stop_data[i] = stop_data.split(',');
+    }
+});
 
-for(var i = 0; i < stop_data.length; i++){
-    stop_data[i] = stop_data.split(',');
-}
+
 
 var route_data = "";
 fetch("./gtfs/routes.txt")
