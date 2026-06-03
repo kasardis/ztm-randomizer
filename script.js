@@ -27,5 +27,5 @@ document.querySelector("#random-stop").addEventListener('click', function(e) {
 document.querySelector("#random-route").addEventListener('click', function(e) {
     var index = Math.floor(Math.random() * route_data.length - 1);
     document.querySelector("#result").textContent = route_data[index][2].replace(/"/g, '');
-    document.querySelector("#result-description").textContent = route_data[index][4];
+    document.querySelector("#result-description").textContent = route_data[index][4].replace(/"/g, '');
 });
