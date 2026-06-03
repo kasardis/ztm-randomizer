@@ -23,5 +23,6 @@ button:active{
 @media (min-width: 768px) {
     #result-description {
         width: 80%;
+        margin: 10px auto;
     }
 }
