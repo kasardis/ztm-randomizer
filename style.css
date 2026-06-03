@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    font-family: "Roboto Mono", monospace;
+    background-color: cornsilk;
+}
+
+button {
+    font-size: medium;
+    font-family: "Roboto Mono", monospace;
+    background-color: pink;
+    padding: 10px;
+    margin: 10px;
+}
+
+button:active{
+    background-color: palevioletred;
+}
