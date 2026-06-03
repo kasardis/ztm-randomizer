@@ -8,12 +8,15 @@ fetch("./gtfs/stops.txt")
     }
 });
 
-
-
 var route_data = "";
 fetch("./gtfs/routes.txt")
 .then(r=>r.text())
-.then(text => route_data = text);
+.then(text => route_data = text)
+.then( () => {
+    for(var i = 0; i < route_data.length; i++){
+        route_data[i] = route_data.split(',');
+    }
+});
 
 document.querySelector("#random-stop").addEventListener('click', function(e) {
     var index = Math.random() % stop_data.length;
@@ -22,5 +25,7 @@ document.querySelector("#random-stop").addEventListener('click', function(e) {
 });
 
 document.querySelector("#random-route").addEventListener('click', function(e) {
-    console.log("hello random route");
+    var index = Math.random() % route_data.length;
+    document.querySelector("#result").textContent = route_data[index][2];
+    document.querySelector("#result-description").textContent = route_data[index][4];
 });

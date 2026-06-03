@@ -15,3 +15,13 @@ button {
 button:active{
     background-color: palevioletred;
 }
+
+#result {
+    font-size: large;
+}
+
+@media (min-width: 768px) {
+    #result-details {
+        width: 80%;
+    }
+}
