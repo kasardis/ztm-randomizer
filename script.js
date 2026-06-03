@@ -4,7 +4,7 @@ fetch("./gtfs/stops.txt")
 .then(text => stop_data = text.split('\n'))
 .then( () => {
     for(var i = 0; i < stop_data.length; i++){
-        stop_data[i] = stop_data.split(',');
+        stop_data[i] = stop_data[i].split(',');
     }
 });
 
@@ -14,7 +14,7 @@ fetch("./gtfs/routes.txt")
 .then(text => route_data = text)
 .then( () => {
     for(var i = 0; i < route_data.length; i++){
-        route_data[i] = route_data.split(',');
+        route_data[i] = route_data[i].split(',');
     }
 });
 
