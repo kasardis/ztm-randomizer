@@ -8,7 +8,7 @@ fetch("./gtfs/stops.txt")
     }
 });
 
-var route_data = "";
+var route_data;
 fetch("./gtfs/routes.txt")
 .then(r=>r.text())
 .then(text => route_data = text)
