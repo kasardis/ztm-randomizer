@@ -26,3 +26,7 @@ button:active{
         margin: 10px auto;
     }
 }
+
+#input-section {
+    margin: 10px;
+}
