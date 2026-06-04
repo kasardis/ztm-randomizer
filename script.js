@@ -24,7 +24,8 @@ document.querySelector("#random-stop").addEventListener('click', async function(
 
     for(var i = 0; i < num_stops; i++){
         var index = Math.floor(Math.random() * (stop_data.length - 2) + 1);
-        var location = stop_data[index][3] + ', ' + stop_data[index][4]; 
+        var location = "";
+        //var location = stop_data[index][3] + ', ' + stop_data[index][4]; 
         /* // limited number of queries :(
         var url = `https://nominatim.openstreetmap.org/reverse?lat=${stop_data[index][3]}&lon=${stop_data[index][4]}&format=jsonv2`;
         const response = await fetch(url, {headers: {'User-Agent': 'ZTMRandomizer'}});
@@ -35,7 +36,8 @@ document.querySelector("#random-stop").addEventListener('click', async function(
             location = data.address.suburb;
         }
         */
-        stop_text = stop_text + stop_data[index][2].replace(/"/g, '') + " (" + location + ")<br>";
+        //stop_text = stop_text + stop_data[index][2].replace(/"/g, '') + " (" + location + ")<br>";
+        stop_text = stop_text + stop_data[index][2].replace(/"/g, '') + "<br>";
     }
     
     document.querySelector("#result").innerHTML = stop_text;
