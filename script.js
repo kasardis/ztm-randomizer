@@ -18,14 +18,23 @@ fetch("./gtfs/routes.txt")
     }
 });
 
-document.querySelector("#random-stop").addEventListener('click', function(e) {
-    var index = Math.floor(Math.random() * stop_data.length - 1);
-    document.querySelector("#result").textContent = stop_data[index][2].replace(/"/g, '');
-    document.querySelector("#result-description").textContent = stop_data[index][3] + ', ' + stop_data[index][4];
+document.querySelector("#random-stop").addEventListener('click', async function(e) {
+    var index = Math.floor(Math.random() * (stop_data.length - 2) + 1);
+    var stop_text = stop_data[index][2].replace(/"/g, '');
+    var url = `https://nominatim.openstreetmap.org/reverse?lat=${stop_data[index][3]}&lon=${stop_data[index][4]}&format=jsonv2`;
+    const response = await fetch(url, {headers: {'User-Agent': 'ZTMRandomizer'}});
+    if(!response.ok) throw new Error(`HTTPS error: ${response.status}`);
+    const data = await response.json();
+    var location = data.address.city || data.address.town || data.address.village;
+    if(location == "Warszawa"){
+        location = data.address.suburb;
+    }
+    document.querySelector("#result").textContent = stop_text;
+    document.querySelector("#result-description").textContent = location;
 });
 
 document.querySelector("#random-route").addEventListener('click', function(e) {
-    var index = Math.floor(Math.random() * route_data.length - 1);
+    var index = Math.floor(Math.random() * (route_data.length - 2) + 1);
     document.querySelector("#result").textContent = route_data[index][2].replace(/"/g, '');
     document.querySelector("#result-description").textContent = route_data[index][4].replace(/"/g, '');
 });
